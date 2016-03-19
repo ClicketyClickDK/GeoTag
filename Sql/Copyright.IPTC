@@ -1,0 +1,27 @@
+-IFD0:Artist={Your Name}
+-IFD0:Copyright={Your Name}
+-IFD1:Compression=JPEG (old-style)
+-IPTC:ContentLocationName={Your location}
+
+-IPTC:By-lineTitle={Mr/Mrs/Mss}
+-IPTC:Writer-Editor={Your Name}
+-IPTC:By-line={Your Name}
+-IPTC:CopyrightNotice={Your Name}
+-IPTC:Contact={Your Address}
+
+-XMP-iptcCore:CreatorCity={Your Home Town}
+-XMP-iptcCore:CreatorCountry=Denmark
+-XMP-iptcCore:CreatorAddress={Your Address}
+-XMP-iptcCore:CreatorPostalCode={Your Zip Code}
+-XMP-iptcCore:CreatorRegion=ContactState
+-XMP-iptcCore:CreatorWorkEmail={Your eMail}
+-XMP-iptcCore:CreatorWorkTelephone={Your phone no}
+-XMP-iptcCore:CreatorWorkURL={Your URL}
+-XMP-dc:Creator={Your Name}
+
+-XMP-photoshop:AuthorsPosition={Mr/Mrs/Mss}
+-XMP-photoshop:CaptionWriter={Your Name}
+-XMP-photoshop:City={Your Home Town}
+-XMP-photoshop:Credit={Your Name}
+-XMP-photoshop:Headline=Headline
+-XMP-photoshop:Source=Digital Photo

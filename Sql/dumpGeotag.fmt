@@ -1,0 +1,240 @@
+#::@(#)NAME
+#::@(-)  The name of the command or function, followed by a one-line description of what it does.
+#::@(#)  dumpGeotag.fmt -- Format for dumping Metadata from image [EXIF+IPTC]
+#::@(#) 
+#::@(#)SYNOPSIS
+#::@(-)  In the case of a command, a formal description of how to run it and what command line options it takes. 
+#::@(-)  For program functions, a list of the parameters the function takes and which header file contains its definition.
+#::@(-)  
+#::@(#)  exiftool -csv -m -n -p dumpGeotag.fmt *.jpg >meta.csv
+#::@(#) 
+#::@ (#)OPTIONS
+#::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
+#::@ (#)  -h      Help page
+#::@ (#) 
+#::@ (#) 
+#::@(#)DESCRIPTION
+#::@(-)  A textual description of the functioning of the command or function.
+#::@(#)
+#::@(#) Run this extract:
+#::@(#)	exiftool -csv -m -n -p dumpGeotag.fmt *.jpg >meta.csv
+#::@(#)	exiftool -csv -m -n -p dumpGeotag.fmt P2043408.JPG
+#::@(#)
+#::@(#) Dump meta
+#::@(#) exiftool -args -G1 -n 2016-01-03T14-55-00_IMG_0009.JPG 
+#::@(#) exiftool  -n -s 2013*.jpg
+#::@(#) exiftool  -n -s P2043408.JPG
+#::@(#)	
+#::@(#) To import use find or grep to extract the tagged lines (like FILE)
+#::@(#)   findstr "^FILE" meta.csv >meta.file.csv
+#::@(#)
+#::@(#) Import the records into a temporary table and the insert into the proper table without the tagged
+#::@(#) See:
+#::@(#)http://stackoverflow.com/questions/16925924/is-it-possible-to-tell-sqlite-to-ignore-trailing-field-separator-when-using-impo
+#::@(#)
+#::@(#)   .separator "\t"
+#::@(#)   CREATE TABLE IF NOT EXISTS imagefile (filename, filesize, filetype, date );
+#::@(#)   CREATE TEMP TABLE DummyTable(tag, filename, filesize, filetype, date);
+#::@(#)   .import meta.file.csv DummyTable
+#::@(#)   INSERT INTO imagefile SELECT filename, filesize, filetype, date FROM DummyTable;
+#::@(#)   DROP TABLE DummyTable;
+#::@ (#)EXAMPLES
+#::@(-)  Some examples of common usage.
+#::@ (#) 
+#::@ (#) 
+#::@ (#) 
+#::@ (#)EXIT STATUS
+#::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
+#::@ (#)
+#::@ (#)ENVIRONMENT
+#::@(-)  Variables affected
+#::@ (#)
+#::@ (#)
+#::@ (#)FILES, 
+#::@(-)  Files used, required, affected
+#::@ (#)
+#::@ (#)
+#::@ (#)BUGS / KNOWN PROBLEMS
+#::@(-)  If any known
+#::@ (#)
+#::@ (#)
+#::@(#)REQUIRES
+#::@(-)  Dependencies
+#::@ (#)
+#::@ (#)SEE ALSO
+#::@(-)  A list of related commands or functions.
+#::@ (#)  
+#::@ (#)  
+#::@ (#)REFERENCE
+#::@(-)  References to inspiration, clips and other documentation
+#::@ (#)  Author:
+#::@ (#)  URL: 
+#::@ (#) 
+#::@ (#)
+#::@(#)SOURCE
+#::@(-)  Where to find this source
+#::@(#)  %$Source%
+#::@(#)
+#::@(#)AUTHOR
+#::@(-)  Who did what
+#::@(#)  Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+#::*** HISTORY **********************************************************
+#::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
+#  SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+#::**********************************************************************
+#::@(#){COPY}%$VERSION:~0,4% %$Author%
+#::**********************************************************************
+
+#
+#File:
+#FileName                        : 2013-03-27T10-49-00_IMG_1346.JPG
+#FileSize                        : 793760
+#FileType                        : JPEG
+#FileTypeExtension               : JPG
+#$IPTC:CodedCharacterSet
+#
+#Date-time
+#DateTimeCreated                 : 1899:12:30 20:30:27+00:00
+#DateCreated                     : 1899:12:30 20:30:27+00:00
+#CreateDate                      : 2013:03:27 10:49:07
+#ModifyDate                      : 2013:03:27 10:49:07
+#DateTimeOriginal                : 2013:03:27 10:49:07
+#
+FILE	$filename	$FileSize	$FileType	$DateTimeOriginal
+#
+#----------------------------------------------------------------------
+#
+#Image Size and type:
+#CroppedImageHeight              : 3000
+#ExifImageHeight                 : 3000
+#RelatedImageHeight              : 3000
+#ImageHeight                     : 3000
+#
+#ImageWidth                      : 4000
+#ExifImageWidth                  : 4000
+#RelatedImageWidth               : 4000
+#ZoomTargetWidth                 : 4000
+#CroppedImageWidth               : 4000
+#Orientation                     : 6
+#
+#MIMEType                        : image/jpeg
+#
+IMAGE	$filename	$ImageWidth	$ImageHeight	$Orientation
+#
+#----------------------------------------------------------------------
+#
+#GPS:
+#GPSAltitude                     : 62.2
+#GPSAltitudeRef                  : 0
+#GPSDateStamp                   -: 2013:03:27
+#GPSDateTime                    -: 2013:03:27 14:00:15Z
+#GPSImgDirection                 : 274
+#GPSImgDirectionRef              : M
+#GPSLatitude                     : 55.6286743299944
+#GPSLatitudeRef                  : N
+#GPSLongitude                    : 12.6576232800444
+#GPSLongitudeRef                 : E
+#GPSPosition                     : 55.6286743299944 12.6576232800444
+#GPSStatus                       : A
+#GPSTimeStamp                    : 14:00:15
+#
+#Location
+#ContentLocationCode             : XNVIEW-
+#CountryCode                     : DNK
+#Country-PrimaryLocationCode     : DNK
+#Country-PrimaryLocationName     : XNVIEW-Country Danmark
+#Country                         : XNVIEW-Country Danmark
+#Province-State                  : geostate
+#State                           : geostate
+#City                            : Geocity
+#Location                        : XNVIEW-sublocation Kastrup Lufthavn
+#Sub-location                    : XNVIEW-sublocation Kastrup Lufthavn
+#ContentLocationName             : XNVIEW-contentLocationName
+#Category                        : geo
+#
+LOCATION	$filename	$GPSLatitude	$GPSLongitude	$GPSLatitudeRef	$GPSLongitudeRef	$GPSAltitude	$GPSImgDirection	$CountryCode	$Country	$Province-State	$City	$Location
+#
+#----------------------------------------------------------------------
+#
+#Headline and description
+#Headline                        : XNVIEW-heasline Påskeferie i Paris
+#Description                     : XNVIEW-Cation: Klar til afgang i Kastrup Lufthavn
+#ImageDescription                : XNVIEW-Cation: Klar til afgang i Kastrup Lufthavn
+#Caption-Abstract                : XNVIEW-Cation: Klar til afgang i Kastrup Lufthavn
+#
+#Comment                         : XNVIEW-comment-edit
+#UserComment                     : Usercomment
+#
+DESCRIPTION	$filename	$headline	$Caption-Abstract	$Comment
+#	$UserComment
+#
+#----------------------------------------------------------------------
+#
+#Copyright
+#Rights                          : XNVIEW-copyringt Erik Bachmann
+#Copyright                       : XNVIEW-copyringt Erik Bachmann
+#CopyrightNotice                 : XNVIEW-copyringt Erik Bachmann
+#Credit                          : XNVIEW-credit Erik Bachmann
+#URL                             : geosetter-URL
+#BaseURL                         : geosetter-URL
+#Contact
+#Contact                         : geosetter-Contactaddress Erik Bachmann
+#CreatorAddress                  : geosetter-Contactaddress Erik Bachmann
+#CreatorCity                     : Gundsømagle
+#CreatorPostalCode               : Geosetter-contactpostalcode
+#CreatorRegion                   : Geosetter-contact stateprov
+#CreatorCountry                  : Geosetter-contactcountry
+#
+#CreatorWorkTelephone            : Geosetter-contactphone
+#CreatorWorkEmail                : Geosetter-email
+#CreatorWorkURL                  : Geosetter-url
+#
+COPYRIGHT	$filename	$Copyright	$Credit $Credit	$URL	$Contact	$CreatorAddress	$CreatorCity	$CreatorRegion	$CreatorPostalCode	$CreatorCountry	$CreatorWorkEmail	$CreatorWorkTelephone	$CreatorWorkURL
+#
+#----------------------------------------------------------------------
+#
+#Byline and author
+#By-line                         : XNVIEW-byline Erik Bachmann
+#Creator                         : XNVIEW-byline Erik Bachmann
+#Artist                          : XNVIEW-byline Erik Bachmann
+#By-lineTitle                    : XNVIEW-bylinetitle
+#AuthorsPosition                 : XNVIEW-bylinetitle
+#CaptionWriter                   : XNVIEW-CaptionWriter Erik Bachmann
+#Writer-Editor                   : XNVIEW-CaptionWriter Erik Bachmann
+#EditStatus                      : XNVIEW-editstatus
+#
+BYLINE	$filename	$By-line	$By-lineTitle	$CaptionWriter	$EditStatus
+#----------------------------------------------------------------------
+#
+#Keywords
+#Subject                         : DNK, Ferie, Geocity, Geosetter-Keywords, geostate, Paris, Påskeferie, Rue du Montparnasse, 14ème Arrondissement, Paris, Paris, France, Edgar Quinet, Gaumont Parnasse, 7 Parnassiens, Miramar, UGC Montparnasse, XNVIEW-Country Danmark, XNVIEW-keyword, XNVIEW-sublocation Kastrup Lufthavn
+#Keywords                        : Rue du Montparnasse, 14ème Arrondissement, Paris, Paris, France, Edgar Quinet, Gaumont Parnasse, 7 Parnassiens, Miramar, UGC Montparnasse, Påskeferie, Paris, Ferie, XNVIEW-keyword, DNK, Geocity, Geosetter-Keywords, geostate, XNVIEW-Country Danmark, XNVIEW-sublocation Kastrup Lufthavn
+#XPSubject                       : Rue du Montparnasse, 14ème Arrondissement, Paris, Paris, France
+#XPKeywords                      : Rue du Montparnasse, 14ème Arrondissement, Paris, Paris, France, Edgar Quinet, Gaumont Parnasse, 7 Parnassiens, Miramar, UGC Montparnasse
+#XPTitle                         : Rue du Montparnasse, 14ème Arrondissement, Paris, Paris, France
+#
+KEYWORDS	$filename	$Keywords
+SUBJECTS	$filename	$Subject
+#
+#----------------------------------------------------------------------
+#
+#Categories
+#SupplementalCategories          : Erik Bachmann Pedersen (00001), Geosetter-supplementalCategories, Marie Bachmann Pedersen (01853), Signe Bachmann Pedersen (00003), XNVIEW-supcategory
+CATEGORIES	$filename	$SupplementalCategories
+#
+#----------------------------------------------------------------------
+#Instructions
+#FixtureIdentifier               : XNVIEW-jobid
+#Title                           : XNVIEW-object name
+#ObjectName                      : XNVIEW-object name
+#TransmissionReference           : XNVIEW-orgtransRef
+#OriginalTransmissionReference   : XNVIEW-orgtransRef
+#OriginatingProgram              : XNVIEW-program
+#ProgramVersion                  : XNVIEW-programv
+#Source                          : XNVIEW-source
+#Instructions                    : XNVIEW-specialinstruction
+#SpecialInstructions             : XNVIEW-specialinstruction
+#
+INSTRUCTIONS	$filename	$FixtureIdentifier	$ObjectName	$TransmissionReference	$OriginatingProgram	$ProgramVersion	$Source	$Instructions
+#
+#*** End of File ******************************************************
