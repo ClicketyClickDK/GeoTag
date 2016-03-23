@@ -6,7 +6,7 @@
 - [ ] Pics: Check sub functions
 - [X] System table
 - [X] Get Software Version
-- [ ] Preloaded database on ClicktyClick.dk 
+- [X] Preloaded database on ClicktyClick.dk 
 - [ ] Update headers
 - [ ] 
 - [ ] 

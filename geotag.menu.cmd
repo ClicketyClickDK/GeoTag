@@ -131,7 +131,7 @@ GOTO :EOF
 :menu_
 
 :menu_R     Read ME
-    CALL notepad ReadMe.txt
+    CALL notepad ReadMe.md
 GOTO:EOF
 
 ::---------------------------------------------------------------------

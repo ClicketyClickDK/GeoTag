@@ -116,7 +116,7 @@ ENDLOCAL
 
 ::*** Packages to install *********************************************
 ::                   ; a:Name    ;b:zip                                   ;c:url                                        ;d:description
-    ::SET _InstallPackage1=;ImageMagick;ImageMagick-6.9.3-6-portable-Q16-x86.zip;http://www.imagemagick.org/download/binaries/;ImageMagick is a software suite to create, edit, compose, or convert images
+    SET _InstallPackage0=;Data;geoname.zip;http://www.ClicketyClick.dk/data/public/geotag/data/;GeoTag preloaded database
     SET _InstallPackage1=;ImageMagick;ImageMagick-7.0.0-0-portable-Q16-x86.zip;http://www.imagemagick.org/download/binaries/;ImageMagick is a software suite to create, edit, compose, or convert images
     SET _InstallPackage2=;UnderScore;master.zip;https://github.com/ClicketyClickDK/Underscore/archive/;Generic DOS batch script library
     ::SET _InstallPackage2=;_;master.zip;https://github.com/ClicketyClickDK/Underscore/archive/;Underscore - Generic DOS batch script library
@@ -184,7 +184,7 @@ GOTO :EOF
     SETLOCAL
         SET _=%~1
         ::CALL "%~dp0_GetAbsolutPath.cmd" "%~dp0\..\%$NAME%%~2" _
-        SET _=%TEMP%%$NAME%%~2
+        SET _=%TEMP%\%$NAME%%~2
         ECHO:%$NAME% v. %$VERSION% r. %$REVISION% - %_StartTime%>"%_%"
     ENDLOCAL&SET %~1=%_%
 GOTO :EOF   ::*** :logTrace ***

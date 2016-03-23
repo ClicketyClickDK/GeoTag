@@ -79,7 +79,8 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-23&SET $REVISION=15:33:00&SET $COMMENT=Robocopy output to trace/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -148,7 +149,7 @@ GOTO :EOF
                 rem MOVE /Y "%~dp0%_PackageName%\" "%~dp0_\" > NUL
                 REM robocopy "C:\Temp\Geotag\Test\tmp\underscore\ " "C:\Temp\Geotag\Test\tmp\_\ " /S /MOVE
                 TITLE %_PackageName% - Raise level
-                robocopy "%~dp0%_PackageName%\ " "%~dp0_\ " /S /MOVE
+                robocopy "%~dp0%_PackageName%\ " "%~dp0_\ " /S /MOVE >>"%_TraceFile%"
 
             )
             TITLE %_PackageName% - Done
