@@ -70,7 +70,7 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-21&SET $REVISION=12:02:00&SET $COMMENT=Initial/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************

@@ -1,10 +1,13 @@
-- [ ] README: How it works
+- [X] README: How it works
 - [ ] README: Improving location matching using your existing meta data
 - [ ] geotag.menu.extended: KML 2 CSV (Google maps -> import)
 - [ ] geotag.menu.extended: CSV 2 KML (Export -> Google maps)
 - [ ] Pics: Cleanup 
 - [ ] Pics: Check sub functions
-- [ ] 
+- [X] System table
+- [X] Get Software Version
+- [ ] Preloaded database on ClicktyClick.dk 
+- [ ] Update headers
 - [ ] 
 - [ ] 
 - [ ] 
