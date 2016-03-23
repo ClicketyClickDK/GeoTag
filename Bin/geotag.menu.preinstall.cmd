@@ -142,7 +142,7 @@ GOTO :EOF
 ::---------------------------------------------------------------------
 
 :menu_R     Read ME
-    CALL notepad ReadMe.txt
+    CALL notepad ReadMe.md
 GOTO:EOF
 
 
@@ -164,8 +164,9 @@ GOTO:EOF
     ECHO:-- Getting config
     CALL notepad "%~dp0\..\bin\Geotag.config.cmd"
     ECHO:*** Restarting menu ***
+    ECHO:"%$SOURCE%"
     TIMEOUT /T 3
-    "%~f0"
+    
 GOTO :EOF
 
 

@@ -132,6 +132,7 @@ BEGIN TRANSACTION;
 .import data/timeZones.txt.esc timeZones 
 SELECT COUNT(*) FROM timeZones;
 INSERT OR REPLACE INTO System (section, name, value, note) VALUES ('tables','timeZones_Load', CURRENT_TIMESTAMP ,'Loading timeZones');
+END TRANSACTION;
 
 --.separator "\t" " "
 --                                             ";
