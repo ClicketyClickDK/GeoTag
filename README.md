@@ -22,9 +22,16 @@ Once installed enables you to add location meta data to your images - even when 
 
 ##HOW IT WORKS
 
+For each picture GPS data like lattitude and logitude are extracted and compared to the Geoname database to find the nearest match.
+This match is written as location back into the image files IPCT meta data structure.
 
+This is done using:
+- Windows batch scripts
+- ExifTool
+- SQLite database
+- and some data from Geoname.org.
 
-
+And it works off-line (once installed)
  
 ##REQUIREMENTS
 

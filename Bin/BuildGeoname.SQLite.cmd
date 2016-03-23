@@ -83,6 +83,7 @@ SET $SOURCE=%~f0
 :Processing
     ECHO:- Building Database
     :: Note the terminating ".quit": -init ignores .q in the SQL load file
+    CALL "%$SQLite.exe%" "%_DataDir%geonames.sqlite" -init "sql\InitiateSystemTable.sql" .quit
     CALL "%$SQLite.exe%" "%_DataDir%geonames.sqlite" -init "sql\BuildGeoname.SQLite.sql" .quit
 
 ::*** End of File *****************************************************
