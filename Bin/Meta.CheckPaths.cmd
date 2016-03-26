@@ -86,17 +86,26 @@ SET $SOURCE=%~f0
 ::ENDLOCAL
 
 :init
+    TITLE %$NAME% v. %$VERSION%
     REM CALL "%~dp0\_banner"
     CALL "%~dp0\_Header"
-
+    ECHO:
+    
     :: General configuration
     CALL "%~dp0\Geotag.config.cmd"
 
+    TITLE %$NAME%: Paths
     ECHO:Paths:
     FOR /F "DELIMS=; Tokens=2*" %%a IN ('SET _CheckPaths') DO CALL :CheckPaths "%%a" "%%b"
+    TITLE %$NAME%: Packages
     ECHO:Packages:
     FOR /F "DELIMS=; Tokens=2*" %%a IN ('SET _CheckPackages') DO CALL :CheckPackages "%%a" "%%b"
-    
+
+    TITLE %$NAME%: History [text]
+    CALL "%~dp0\getHistory" >"%~dp0\..\DOC\history.txt"
+    TITLE %$NAME%: History [html]
+    CALL "%~dp0\getHistory" -html >"%~dp0\..\DOC\history.html"
+    TITLE %$NAME%: done
 GOTO :EOF
 
 ::---------------------------------------------------------------------

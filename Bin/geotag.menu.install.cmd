@@ -77,7 +77,8 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-03-11&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2016-03-11&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-24&SET $REVISION=08:10:00&SET $COMMENT=Database build extracted from default install/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -95,15 +96,13 @@ SET $SOURCE=%~f0
     SET _Menu.Level=3
     SET _Alternatives=
     CALL "%~dp0\_banner"
-    
     ECHO:
 
     FOR /F "tokens=1,2,* delims=_ " %%A in ('"FINDSTR /b /c:":menu_" "%~f0""') do ECHO:  %%B  %%C & CALL :LocalSet _Alternatives %%B
 
-
 :menuSelect
     ECHO:
-    REM ECHO:Alt[%_Alternatives%]
+    rem ECHO:Alt[%_Alternatives%]
 
     CHOICE /C %_Alternatives% /M "Menu %_Menu.Level% - Make a choice: "
     ECHO:
@@ -130,12 +129,14 @@ GOTO :EOF
 :: menu functions follow below here
 ::-----------------------------------------------------------
 
-:menu0_Q   Quit
-    REM ECHO: Quitting
-    REM CALL :Menu_q
-GOTO:EOF
-
 ::---------------------------------------------------------------------
+
+:menu_Q Quit (Return to main)
+    echo :Return to main
+    ENDLOCAL&CALL SET "_SEL=Q"
+    ECHO:preinstall [%_sel%]
+    ::TIMEOUT /T 5
+EXIT /b
 
 :menu_C     Edit config file
     ECHO:-- Getting config
@@ -147,14 +148,14 @@ GOTO:EOF
     CALL "%$Source%"
 GOTO :EOF
 
-:menu_I   Install - The full monty
+:menu_I   Install software and database
     CALL :menu_1
     CALL :menu_2
-    CALL :menu_3
-    CALL :menu_4
-    CALL :menu_5
-    CALL :menu_6
-    CALL :menu_7
+    ::CALL :menu_3
+    ::CALL :menu_4
+    ::CALL :menu_5
+    ::CALL :menu_6
+    ::CALL :menu_7
 GOTO:EOF
 
 :menu_
@@ -167,11 +168,15 @@ GOTO:EOF
     ECHO:
 GOTO:EOF
 
-:menu_2     - Download and install packages
+:menu_2     - Download and install packages (including database)
     ECHO:-Download and install packages
     CALL "%~dp0\Meta.InstallPackages.cmd"
     ECHO:
 GOTO:EOF
+
+
+:menu_#  Database rebuild
+
 
 :menu_3     - Download meta data from Geoname.org
     ECHO:- Download meta data from Geoname.org
@@ -185,7 +190,7 @@ GOTO:EOF
     ECHO:
 GOTO:EOF
 
-:menu_5     - Build databases 
+:menu_5     - Build databases *Warning* - Overwrites existing database
     ECHO:- Build databases
     CALL "%~dp0\BuildGeoname.SQLite.cmd"
     ECHO:
@@ -203,14 +208,5 @@ GOTO:EOF
     ECHO:
 GOTO:EOF
 
-
-:menu_
-
-:menu_Q Quit (Return to main)
-    echo :Return to main
-    ENDLOCAL&CALL SET "_SEL=Q"
-    ECHO:preinstall [%_sel%]
-    ::TIMEOUT /T 5
-EXIT /b
 
 ::*** End of File *****************************************************

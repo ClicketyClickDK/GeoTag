@@ -70,7 +70,8 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-25&SET $REVISION=09:54:00&SET $COMMENT=Absolut path on key stubs/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -85,8 +86,11 @@ ENDLOCAL
 
 ::*** Path stubs ******************************************************
 :: Do not use "" in paths or names
-    SET _ImageDir=%~dp0\..\images\
-    SET _WebDir=%~dp0\..\web\
+    ::SET _ImageDir=%~dp0\..\images\
+    ::SET _WebDir=%~dp0\..\web\
+    CALL "%~dp0_GetAbsolutPath.cmd" "%~dp0\..\images\" _ImageDir
+    CALL "%~dp0_GetAbsolutPath.cmd" "%~dp0\..\web\" _WebDir
+
     SET $SQLite_dir=%~dp0\sqlite\
     SET $ExifTool_dir=%~dp0\ExifTool\
     SET $ImageMagick_dir=%~dp0\ImageMagick\
@@ -116,7 +120,7 @@ ENDLOCAL
 
 ::*** Packages to install *********************************************
 ::                   ; a:Name    ;b:zip                                   ;c:url                                        ;d:description
-    SET _InstallPackage0=;Data;geoname.zip;http://www.ClicketyClick.dk/data/public/geotag/data/;GeoTag preloaded database
+    SET _InstallPackage0=;..\Data;geoname.zip;http://www.clicketyclick.dk/data/public/geotag/data/;GeoTag preloaded database
     SET _InstallPackage1=;ImageMagick;ImageMagick-7.0.0-0-portable-Q16-x86.zip;http://www.imagemagick.org/download/binaries/;ImageMagick is a software suite to create, edit, compose, or convert images
     SET _InstallPackage2=;UnderScore;master.zip;https://github.com/ClicketyClickDK/Underscore/archive/;Generic DOS batch script library
     ::SET _InstallPackage2=;_;master.zip;https://github.com/ClicketyClickDK/Underscore/archive/;Underscore - Generic DOS batch script library
