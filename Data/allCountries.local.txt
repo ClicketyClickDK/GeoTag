@@ -1,2 +1,1 @@
 99000000	Roskilde Cathedral	Roskilde Domkirke		55.642649	12.080365			DK			265			0		40	Europe/Copenhagen	2016-03-18
-99000100	Stubvangen 5	Bryndum, DK-6715 Esbjerg N		55,53632500	8,48037600			DK			561			0			Europe/Copenhagen	2016-03-25
