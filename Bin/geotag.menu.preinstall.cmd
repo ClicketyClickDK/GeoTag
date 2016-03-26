@@ -77,7 +77,8 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-03-11&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2016-03-11&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-24&SET $REVISION=08:16:00&SET $COMMENT=Build database swopped to download/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -149,13 +150,13 @@ GOTO:EOF
 :menu_I   *** Install *** - The full monty
     CALL "%~dp0\geotag.menu.install" 1  - Checking paths
     CALL "%~dp0\geotag.menu.install" 2  - Download and install packages
-    CALL "%~dp0\geotag.menu.install" 3  - Download meta data from Geoname.org
-    CALL "%~dp0\geotag.menu.install" 4  - Convert meta data
-    CALL "%~dp0\geotag.menu.install" 5  - Build databases
-    CALL "%~dp0\geotag.menu.install" 6  - Load meta data
-    CALL "%~dp0\geotag.menu.install" 7  - Post process loaded meta data
+    ::CALL "%~dp0\geotag.menu.install" 3  - Download meta data from Geoname.org
+    ::CALL "%~dp0\geotag.menu.install" 4  - Convert meta data
+    ::CALL "%~dp0\geotag.menu.install" 5  - Build databases
+    ::CALL "%~dp0\geotag.menu.install" 6  - Load meta data
+    ::CALL "%~dp0\geotag.menu.install" 7  - Post process loaded meta data
     ECHO:Installation done
-    TREE
+    ::TREE
     PAUSE
 GOTO:EOF
 

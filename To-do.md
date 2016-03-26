@@ -8,6 +8,6 @@
 - [X] Get Software Version
 - [X] Preloaded database on ClicktyClick.dk 
 - [ ] Update headers
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] create index geonameidx on geoname(geonameid);
+- [ ] Check: "Bin\\_\_getopt"  -files:"*.cmd *.bat"  -> *.bat"!"=="!" was unexpected at this time.
+- [ ] Test packages

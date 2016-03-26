@@ -2,11 +2,7 @@
 REM.-- Prepare the Command Processor
 SETLOCAL ENABLEEXTENSIONS
 SETLOCAL ENABLEDELAYEDEXPANSION
-
-REM URL: http://www.dostips.com/DtTipsMenu.php
-
-::@ECHO OFF
-SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
+::SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
 SET $DESCRIPTION=Database menu for Geonames reverse geotagging
@@ -65,7 +61,7 @@ SET $SOURCE=%~f0
 ::@ (#)REFERENCE
 ::@(-)  References to inspiration, clips and other documentation
 ::@ (#)  Author:
-::@ (#)  URL: 
+::@ (#)  URL: http://www.dostips.com/DtTipsMenu.php
 ::@ (#) 
 ::@ (#)
 ::@(#)SOURCE
@@ -77,7 +73,8 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-03-11&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2016-03-11&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-24&SET $REVISION=08:15:00&SET $COMMENT=Update and forced rebuild database added/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -158,6 +155,31 @@ GOTO :EOF
     TIMEOUT /T 15
 GOTO :EOF
 
+:menu_
+
+:menu_U   Update geoname database. * WARNING * requires > 8 GB free disk
+    CALL "%~dp0\geotag.menu.install" 1  - Checking paths
+    ::CALL "%~dp0\geotag.menu.install" 2  - Download and install packages
+    CALL "%~dp0\geotag.menu.install" 3  - Download meta data from Geoname.org
+    CALL "%~dp0\geotag.menu.install" 4  - Convert meta data
+    ::CALL "%~dp0\geotag.menu.install" 5  - Build databases
+    CALL "%~dp0\geotag.menu.install" 6  - Load meta data
+    CALL "%~dp0\geotag.menu.install" 7  - Post process loaded meta data
+    ECHO:Rebuild database done
+    PAUSE
+GOTO:EOF
+
+:menu_F   Force rebuild of database * WARNING * - The full monty - requires > 8 GB free disk
+    CALL "%~dp0\geotag.menu.install" 1  - Checking paths
+    ::CALL "%~dp0\geotag.menu.install" 2  - Download and install packages
+    CALL "%~dp0\geotag.menu.install" 3  - Download meta data from Geoname.org
+    CALL "%~dp0\geotag.menu.install" 4  - Convert meta data
+    CALL "%~dp0\geotag.menu.install" 5  - Build databases
+    CALL "%~dp0\geotag.menu.install" 6  - Load meta data
+    CALL "%~dp0\geotag.menu.install" 7  - Post process loaded meta data
+    ECHO:Rebuild database done
+    PAUSE
+GOTO:EOF
 
 
 

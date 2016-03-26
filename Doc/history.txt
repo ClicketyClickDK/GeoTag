@@ -1,0 +1,45 @@
+getHistory v. 2016-03-24 r. 18:30:00
+- Get history from all scripts
+
+2016-02-19
+- 00:00:00 bin\BuildGeoname.SQLite.cmd       Initial/ErikBachmann   
+- 00:00:00 bin\ConvertGeoname.SQLite.cmd     Initial/ErikBachmann   
+- 00:00:00 bin\Geotag.config.cmd             Initial/ErikBachmann   
+- 00:00:00 bin\GetGeonamesData.cmd           Initial/ErikBachmann   
+- 00:00:00 bin\Gps2Location.cmd              Initial/ErikBachmann   
+- 00:00:00 bin\LoadGeoname.SQLite.cmd        Initial/ErikBachmann   
+- 00:00:00 bin\Meta.CheckPaths.cmd           Initial/ErikBachmann   
+- 00:00:00 bin\Meta.dump.cmd                 Initial/ErikBachmann   
+- 00:00:00 bin\Meta.Install.cmd              Initial/ErikBachmann   
+- 00:00:00 bin\Meta.InstallPackages.cmd      Initial/ErikBachmann   
+- 00:00:00 bin\Meta.load.cmd                 Initial/ErikBachmann   
+- 00:00:00 bin\Meta.split.cmd                Initial/ErikBachmann   
+- 00:00:00 bin\PostLoadGeoname.SQLite.cmd    Initial/ErikBachmann   
+- 00:00:00 bin\revGeotagAll.cmd              Initial/ErikBachmann   
+2016-03-11
+- 00:00:00 .\geotag.menu.cmd                 Initial/ErikBachmann   
+- 00:00:00 bin\geotag.menu.database.cmd      Initial/ErikBachmann   
+- 00:00:00 bin\geotag.menu.extended.cmd      Initial/ErikBachmann   
+- 00:00:00 bin\geotag.menu.index.cmd         Initial/ErikBachmann   
+- 00:00:00 bin\geotag.menu.install.cmd       Initial/ErikBachmann   
+- 00:00:00 bin\geotag.menu.preinstall.cmd    Initial/ErikBachmann   
+2016-03-21
+- 11:47:00 bin\getHistory.cmd                init / ErikBachmann   
+- 12:02:00 bin\GetGeonamesData.cleanup.cmd   Initial/ErikBachmann   
+2016-03-23
+- 15:33:00 bin\Meta.InstallPackages.cmd      Robocopy output to trace/ErikBachmann   
+2016-03-24
+- 08:10:00 bin\geotag.menu.install.cmd       Database build extracted from default install/ErikBachmann   
+- 08:12:00 bin\Meta.InstallPackages.cmd      Include preloaded database/ErikBachmann   
+- 08:15:00 bin\geotag.menu.database.cmd      Update and forced rebuild database added/ErikBachmann   
+- 08:16:00 bin\geotag.menu.preinstall.cmd    Build database swopped to download/ErikBachmann   
+- 14:39:00 .\geotag.menu.cmd                 Optimized/ErikBachmann   
+- 17:34:00 bin\getHistory.cmd                HTML history / ErikBachmann   
+- 18:30:00 bin\getHistory.cmd                Robust list / ErikBachmann   
+- 22:23:00 bin\Meta.InstallPackages.cmd      getHistory/ErikBachmann   
+2016-03-25
+- 09:54:00 bin\Geotag.config.cmd             Absolut path on key stubs/ErikBachmann   
+- 10:12:00:00 bin\Gps2Location.cmd           Call to sqlite fixed/ErikBachmann   
+- 22:33:00 bin\csv2kml.cmd                   Initial/ErikBachmann   
+- 22:33:00 bin\kml2csv.cmd                   Initial/ErikBachmann   
+- 22:40:00 bin\csv2load.cmd                  Initial/ErikBachmann   

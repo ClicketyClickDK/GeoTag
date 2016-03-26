@@ -80,9 +80,7 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
-::SET $VERSION=2016-03-23&SET $REVISION=15:33:00&SET $COMMENT=Robocopy output to trace/ErikBachmann
-::SET $VERSION=2016-03-24&SET $REVISION=08:12:00&SET $COMMENT=Include preloaded database/ErikBachmann
-  SET $VERSION=2016-03-24&SET $REVISION=22:23:00&SET $COMMENT=getHistory/ErikBachmann
+  SET $VERSION=2016-03-23&SET $REVISION=15:33:00&SET $COMMENT=Robocopy output to trace/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -129,12 +127,9 @@ GOTO :EOF
 
         IF NOT DEFINED _PackageState (
             CALL "%~dp0\_\_State" Unzipping
-            rem ::            b:zip     a:target
-            rem ECHO:CALL :_Unzip "%_PackageZip%" "%_PackageName%" "%_PackageName%"  
-            rem >>"%_LogFile%"  2>&1
-
+            ::            b:zip     a:target
             CALL :_Unzip "%_PackageZip%" "%_PackageName%" "%_PackageName%"  >>"%_LogFile%"  2>&1
-            
+
             :: Patches
             IF "ExifTool"=="%_PackageName%" COPY /y /V "%~dp0%_PackageName%\exiftool(-k).exe" "%~dp0%_PackageName%\exiftool.exe" >nul
             
@@ -166,9 +161,6 @@ GOTO :EOF
             TITLE %_PackageName% - %_PackageState%
             CALL "%~dp0\_\_Status" "%_PackageState%"
         )
-        CALL "%~dp0\getHistory" >"%~dp0\..\DOC\history.txt"
-        CALL "%~dp0\getHistory" -html >"%~dp0\..\DOC\history.html"
-        
 GOTO :EOF
 
 ::----------------------------------------------------------------------
@@ -207,10 +199,7 @@ GOTO :EOF   *** :getLatestImageMagick ***
             TITLE %~1 Downloaded
             ECHO:%~1 Downloaded>>"%_TraceFile%"
             DIR "%TEMP%\%~1">>"%_TraceFile%"
-        ) ELSE (
-            SET _PackageState=Download failed
-            ECHO:Download failed>>"%_TraceFile%"
-        )
+        ) ELSE SET _PackageState=Download failed
     ) ELSE (
         TITLE %~1 Download skipped
         CALL "%~dp0\_\_Status" "Zip Found in temp. Download skipped"
@@ -222,15 +211,10 @@ GOTO :EOF   *** :_Download ***
 ::----------------------------------------------------------------------
 
 :_UnZip zip target
-SETLOCAL
-    CALL "%~dp0_GetAbsolutPath" "%TEMP%\%~1" _source
-    CALL "%~dp0_GetAbsolutPath" "%~dp0%~2"   _target
-    
-    
     IF EXIST "%TEMP%\%~1" (
         TITLE %~3: Unzipping %1
-        ECHO:%~3: Unzipping: "%_source%" "%_target%" >> "%_traceLog%"
-        CALL "%~dp0\_\unZip.bat" "%_source%" "%_target%"
+        ECHO:%~3: Unzipping %1>>"%_traceLog%"
+        CALL "%~dp0\_\unZip.bat" "%TEMP%\%~1" "%~dp0%~2"
         TITLE %~3: Unzipped %1
         ECHO:%~3: Unzipped %1>>"%_traceLog%"
         CALL "%~dp0\_\_State" "Unzipped"
@@ -239,7 +223,6 @@ SETLOCAL
         CALL SET _PackageState=Zip not found in temp
         CALL "%~dp0\_\_Status" "%_PackageState%"
     )
-ENDLOCAL
 GOTO :EOF   *** :_UnZip ***
 
 ::----------------------------------------------------------------------

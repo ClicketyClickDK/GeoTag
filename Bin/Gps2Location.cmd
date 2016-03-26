@@ -1,4 +1,4 @@
-::@ECHO OFF
+@ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
@@ -70,7 +70,8 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-25&SET $REVISION=10:12:00:00&SET $COMMENT=Call to sqlite fixed/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -90,6 +91,7 @@ SET $SOURCE=%~f0
     
     
     SET _FILE=%1
+    SET _File=%_FILE:\=/%
     SET _FILENAME=%~n1                             .
     SET _latitude=%2
     SET _longitude=%3
@@ -105,9 +107,7 @@ SET $SOURCE=%~f0
     Title %~n0: %_file% - Convert GPS to location
     ECHO:%Date% - %TIME%: %$NAME% - %_file% - Convert GPS to location >>%_TraceFile%
 
-    ::ECHO:>&2
-    ::ECHO :mapGps2location %_longitude% %_latitude% %_Distance% >&2
-
+    Title %~n0: %_file% - Convert GPS to location - Build sql
     CALL :mapGps2location "%_longitude%" "%_latitude%" "%_Distance%" >"%_Gps2LocationSql%" 2>>%_TraceFile%
     TYPE "%_Gps2LocationSql%" >>%_TraceFile%
 
@@ -118,17 +118,20 @@ SET $SOURCE=%~f0
         COPY "%$Copyright%" "%_Gps2LocationTags%">nul
     )
 
-    Title %~n0: %_file% -- Search geonames
+    Title %~n0: Search geonames: %_fileName% - %_longitude%/%_latitude%
     ECHO:%Date% - %TIME%: %$NAME% - %_file% - Convert GPS to location>%_TraceFile%
-    "%$SQLite_dir%%$SQLite.exe%" %$SQLite.db.geoname% <"%_Gps2LocationSql%" >>"%_Gps2LocationTags%" 2>>%_TraceFile%
+    CALL "%$SQLite.exe%" %$SQLite.db.geoname% <"%_Gps2LocationSql%" >>"%_Gps2LocationTags%" 2>>%_TraceFile%
     TYPE "%_Gps2LocationTags%" >>%_TraceFile%
 
     Title %~n0: %_file% -- Load IPTC
     :: Delete tmp files from ExifTool
     IF EXIST "%_file%_exiftool_tmp" DEL "%_file:/=\%_exiftool_tmp"
+    Title %~n0: Update image: %_fileName%
     CALL "%$ExifTool%"  -@ "%_Gps2LocationTags%" %_file% 2>"%tmp%\%~n0.EXIF.error"
     TYPE "%tmp%\%~n0.EXIF.error"  >>%_TraceFile%
     TYPE "%tmp%\%~n0.EXIF.error"
+    Title %~n0: Image updated: %_fileName% - %_longitude%/%_latitude%
+
 GOTO :EOF
 
 
