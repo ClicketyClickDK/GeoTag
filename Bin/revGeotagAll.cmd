@@ -71,7 +71,8 @@ SET $SOURCE=%~f0
 ::@(#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2016-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-04-18&SET $REVISION=18:10:00&SET $COMMENT=ExifTool arg: -ext + _ImageDir with slash/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -89,7 +90,15 @@ SET $SOURCE=%~f0
     ECHO:@ECHO OFF >"%_Batch%"
 
     ECHO:- Extract GPS positions
-    "%$ExifTool_dir%\%$ExifTool.exe%" -f -r -n -p "CALL \"%~dp0Gps2Location.cmd\" $directory/$filename $GPSLatitude $GPSLongitude" "%_ImageDir%\%_ImagePattern%" >>"%_Batch%"
+    :: -f          (-forcePrint)        Force printing of all specified tags
+    :: -r[.]       (-recurse)           Recursively process subdirectories
+    :: -n          (--printConv)        Read/write numerical tag values
+    :: -p FMTFILE  (-printFormat)       Print output in specified format
+    "%$ExifTool_dir%\%$ExifTool.exe%" -f -r -n -ext %_ImageExt% -p "CALL \"%~dp0Gps2Location.cmd\" "$directory/$filename" $GPSLatitude $GPSLongitude" "%_ImageDir:\=/%" >>"%_Batch%"
+    ::%_ImagePattern:\=/%
+    ::ECHO %_ImagePattern%
+    ::pause
+    ::
     
     ECHO:- Process pictures
     CALL "%_Batch%"
