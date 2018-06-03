@@ -1,7 +1,7 @@
 # GeoTag
 An out-of-the-Box Reverse Geotagging for images containing GPS information in EXIF format.
 
-##Reverse Geotagging v. 2016-03-18 r. 00:00:00
+## Reverse Geotagging v. 2016-03-18 r. 00:00:00
 
 / Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 
@@ -11,16 +11,16 @@ URL: https://github.com/ClicketyClickDK/GeoTag
 
 ## WHAT IT DOES
 
-###For short:
+### For short:
 An out-of-the-Box Reverse Geotagging for images containing GPS information in EXIF format.
 
-###In detail:
+### In detail:
 A simple menu based tool to update the location meta data in image files, based on the GPS data stored by you camera.
 
 Once installed enables you to add location meta data to your images - even when you off-line
 
 
-##HOW IT WORKS
+## HOW IT WORKS
 
 For each picture GPS data like lattitude and logitude are extracted and compared to the Geoname database to find the nearest match.
 This match is written as location back into the image files IPCT meta data structure.
@@ -33,7 +33,7 @@ This is done using:
 
 And it works off-line (once installed)
  
-##REQUIREMENTS
+## REQUIREMENTS
 
 This setup does NOT require any admin rights or installation of software, that is not Open Source.
 
@@ -55,7 +55,7 @@ Underscore 	| https://github.com/ClicketyClickDK/Underscore | A collection of ge
 Pics		| https://github.com/ClicketyClickDK/Pics | Handling pictures from camera, SD, mobile or other devices
 
 
-##INSTALLING
+## INSTALLING
 
 Create a directory to place the package in - like: `C:\TMP\Geotag\`. 
 Download the Geotag package to the directory and unzip.
@@ -140,13 +140,13 @@ And you will return to the full main menu with the options:
 Now you're ready to rock!
 
 
-##GET IMAGES TO GEOTAG
+## GET IMAGES TO GEOTAG
 
-###MANUALLY
+### MANUALLY
 
 You can manually copy image files to the directory "IMAGES\" or any subdirectory below.
 
-###AUTOMATED
+### AUTOMATED
 
 OR you can import files from SD card / camera by using the iMport option in the menu.
 The import option requires a directory named "DCIM" in the root of a drive. 
@@ -163,7 +163,7 @@ a prefix of data and time:
         +--- YYYY-MM-DDThh-mm-ss_filename4
 ```
 
-##REVERSE GEOTAGGING
+## REVERSE GEOTAGGING
 
 Select the "G  Reverse Geotag new images" option from the main menu.
 The script traverses the "IMAGES\" directories and:
@@ -173,7 +173,7 @@ The script traverses the "IMAGES\" directories and:
 3. Writes the location into the IPTC section of the image file
 
 
-##ADDNING PERSONALIZED GEONAMES
+## ADDNING PERSONALIZED GEONAMES
 
 Add your personalize data to the data file "Data\allCountries.local.txt"
 
@@ -243,5 +243,5 @@ This will delete old local entries and import the latest version:
 	changes:   1   total_changes: 25
 ```
 
-##IMPROVING USING YOUR EXISTING META DATA
+## IMPROVING USING YOUR EXISTING META DATA
 (not implemented)
