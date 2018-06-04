@@ -19,7 +19,6 @@ A simple menu based tool to update the location meta data in image files, based 
 
 Once installed enables you to add location meta data to your images - even when you off-line
 
-
 ## HOW IT WORKS
 
 For each picture GPS data like lattitude and logitude are extracted and compared to the Geoname database to find the nearest match.
@@ -69,6 +68,23 @@ This will create a structure like:
    +---Doc          Documentation
    \---Sql          SQL scripts
 ```
+
+### Update configuration
+
+<fieldset>
+<legend>NOTE</legend>
+    Do check that the current versions of software are downloaded!
+</fieldset>
+
+Please check the section **Packages to install** in `Bin/Geotag.config.cmd` for the latest versions of the utilities:
+
+- ImageMagick `ImageMagick-7.0.7-38-portable-Q16-x866.zip`
+- ExifTool `exiftool-10.99.zip;` Check http://owl.phy.queensu.ca/~phil/exiftool/ver.txt for latest version
+- SQLite  https://www.sqlite.org/**2018**/ `sqlite-tools-win32-x86-3230100.zip` See latest version of Windows Tools version at https://www.sqlite.org/download.html
+
+Update the config file `Geotag.config.cmd` and save it to `Bin/`.
+
+### Run installation
 
 From the Geotag directory, open the main menu:
 ```
