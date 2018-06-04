@@ -120,13 +120,16 @@ ENDLOCAL
 
 ::*** Packages to install *********************************************
 ::                   ; a:Name    ;b:zip                                   ;c:url                                        ;d:description
-    SET _InstallPackage0=;..\Data;geoname.zip;http://www.clicketyclick.dk/data/public/geotag/data/;GeoTag preloaded database
-    SET _InstallPackage1=;ImageMagick;ImageMagick-7.0.0-0-portable-Q16-x86.zip;http://www.imagemagick.org/download/binaries/;ImageMagick is a software suite to create, edit, compose, or convert images
+    SET _InstallPackage0=;..\Data;geoname.zip;https://www.clicketyclick.dk/data/public/geotag/data/;GeoTag preloaded database
+    ;SET _InstallPackage1=;ImageMagick;ImageMagick-7.0.0-0-portable-Q16-x86.zip;http://www.imagemagick.org/download/binaries/;ImageMagick is a software suite to create, edit, compose, or convert images
+    SET _InstallPackage1=;ImageMagick;ImageMagick-7.0.7-38-portable-Q16-x866.zip;http://www.imagemagick.org/download/binaries/;ImageMagick is a software suite to create, edit, compose, or convert images
     SET _InstallPackage2=;UnderScore;master.zip;https://github.com/ClicketyClickDK/Underscore/archive/;Generic DOS batch script library
     ::SET _InstallPackage2=;_;master.zip;https://github.com/ClicketyClickDK/Underscore/archive/;Underscore - Generic DOS batch script library
-    SET _InstallPackage3=;ExifTool;exiftool-10.11.zip;http://www.sno.phy.queensu.ca/~phil/exiftool/;ExifTool by Phil Harvey - Read, Write and Edit Meta Information!
-    SET _InstallPackage4=;SQLite;sqlite-tools-win32-x86-3110100.zip;https://www.sqlite.org/2016/;SQLite is a self-contained, serverless, zero-configuration, transactional SQL database engine.
-    SET _InstallPackage5=;SQLite;sqlite.extension-functions.zip;http://clicketyclick.dk/databases/sqlite/;SQLite Extensions: Math, String and Aggregate
+    
+    :: Check http://owl.phy.queensu.ca/~phil/exiftool/ver.txt for latest version
+    SET _InstallPackage3=;ExifTool;exiftool-10.99.zip;http://www.sno.phy.queensu.ca/~phil/exiftool/;ExifTool by Phil Harvey - Read, Write and Edit Meta Information!
+    SET _InstallPackage4=;SQLite;sqlite-tools-win32-x86-3230100.zip;https://www.sqlite.org/2018/;SQLite is a self-contained, serverless, zero-configuration, transactional SQL database engine.
+    SET _InstallPackage5=;SQLite ext;sqlite.extension-functions.zip;https://clicketyclick.dk/databases/sqlite/;SQLite Extensions: Math, String and Aggregate
     SET _InstallPackage6=;Pics;master.zip;https://github.com/ClicketyClickDK/Pics/archive/;Handling pictures from camera, SD, mobile or other devices
     
 ::*** Data files to load **********************************************
