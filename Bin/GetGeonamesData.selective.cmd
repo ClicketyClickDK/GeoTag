@@ -19,7 +19,8 @@ SETLOCAL
 
         ECHO:^<[%_GeonamesURL%+%%a.zip]>>"%_LogFile%"
         ECHO:^>"%_DataDir%\%%a.zip">>"%_LogFile%"
-        CALL "%~dp0\_\wget.bat" "%_GeonamesURL%%%a.zip" "%_DataDir%\%%a.zip"
+        ::CALL "%~dp0\_\wget.bat" "%_GeonamesURL%%%a.zip" "%_DataDir%\%%a.zip"
+        CALL "%~dp0\_\wget.cmd" "%_GeonamesURL%%%a.zip" "%_DataDir%\%%a.zip"
         TITLE %$NAME%:Download done  %%a - %%b
         CALL "%~dp0\_\_Status" "Downloaded"
 

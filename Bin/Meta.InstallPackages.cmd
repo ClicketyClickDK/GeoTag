@@ -185,7 +185,8 @@ GOTO :EOF   *** :PostSqlite ***
 
 :getLatestImageMagick
     SET _latestImageMagick=%~1
-    CALL "%~dp0\_\wget.bat" "%_latestImageMagick%digest.rdf" "%_datadir%\digest.rdf"
+    ::CALL "%~dp0\_\wget.bat" "%_latestImageMagick%digest.rdf" "%_datadir%\digest.rdf"
+    CALL "%~dp0\_\wget.cmd" "%_latestImageMagick%digest.rdf" "%_datadir%\digest.rdf"
 
     FOR /F "DELIMS== tokens=2" %%a IN ('findstr "ImageMagick-.*-portable-.*-x86.zip" ^<%_datadir%\digest.rdf') DO CALL SET "_latestImageMagick=%%a"
     ECHO:--%_latestImageMagick:~1,-2%
@@ -202,7 +203,8 @@ GOTO :EOF   *** :getLatestImageMagick ***
         TITLE %~1 Downloading...
         ECHO:%~1 Downloading>>"%_TraceFile%"
         ::                     ZIP URL
-        CALL "%~dp0\_\Wget.bat" "%~2%~1" "%TEMP%\%~1"
+        ::CALL "%~dp0\_\Wget.bat" "%~2%~1" "%TEMP%\%~1"
+        CALL "%~dp0\_\Wget.cmd" "%~2%~1" "%TEMP%\%~1"
         IF EXIST "%TEMP%\%~1" (
             TITLE %~1 Downloaded
             ECHO:%~1 Downloaded>>"%_TraceFile%"

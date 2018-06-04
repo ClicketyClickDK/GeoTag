@@ -97,7 +97,8 @@ SET $SOURCE=%~f0
             TITLE %$NAME%: Downloading %%a - please wait...
             CALL "%~dp0_\_State.cmd" "Downloading..."
             rem ECHO CALL "%~dp0_\wget.bat" "%%c%%a" "%CD%\%%b\%%a"
-            CALL "%~dp0_\wget.bat" "%%c%%a" "%CD%\%%b\%%a" >>"%_LogFile%" 2>&1
+            rem CALL "%~dp0_\wget.bat" "%%c%%a" "%CD%\%%b\%%a" >>"%_LogFile%" 2>&1
+            CALL "%~dp0_\wget.cmd" "%%c%%a" "%CD%\%%b\%%a" >>"%_LogFile%" 2>&1
             IF EXIST "%CD%\%%b\%%a" (
                 TITLE %$NAME%: Download done
                 CALL "%~dp0_\_Status.cmd" "Downloaded"
