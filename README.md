@@ -7,7 +7,12 @@ An out-of-the-Box Reverse Geotagging for images containing GPS information in EX
 
 URL: https://github.com/ClicketyClickDK/GeoTag
 
->*** Please note: This is a Windows only setup ***
+<fieldset>
+<legend>NOTE</legend>
+    **Please note: This is a Windows only setup**
+</fieldset>
+
+
 
 ## WHAT IT DOES
 
